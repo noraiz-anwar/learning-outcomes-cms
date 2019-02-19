@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Learning Outcomes</title>
+    <link href="https://unpkg.com/treeflex/dist/css/treeflex.css" rel="stylesheet">
+    {% load mptt_tags %}
+</head>
+<body>
+
+    <div class="tf-tree">
+        <ul>
+            {% recursetree nodes %}
+                <li>
+                    <span class="tf-nc">{{ node.topic.name }}</span>
+                    {% if not node.is_leaf_node %}
+                        <ul>
+                        {{ children }}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endrecursetree %}
+        </ul>
+    </div>
+
+    <div class="tf-tree">
+           
+                {% recursetree nodes %}
+                    {
+                        {{ node.topic.name }}
+                        {% if not node.is_leaf_node %}
+                            {
+                            {{ children }}
+                            }
+                        {% endif %}
+                    }
+                {% endrecursetree %}
+        </div>
+
+</body>
+</html>
