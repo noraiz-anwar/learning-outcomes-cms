@@ -5,12 +5,20 @@ from django.db import models
 from mptt.models import MPTTModel, TreeForeignKey
 
 
+class Outcomes(models.Model):
+    statement = models.CharField(max_length=100, unique=True)
+    prerequisites = models.ManyToManyField("self", symmetrical=False, blank=True)
+
+    def __str__(self):
+        return self.statement
+
+
 class Topic(models.Model):
     name = models.CharField(max_length=50, unique=True)
     category = models.CharField(max_length=50, default='')
-    prerequisites = models.ManyToManyField("self", symmetrical=False, blank=True)
+    outcomes = models.ManyToManyField("Outcomes", blank=True)
     
-    def __str__ (self):
+    def __str__(self):
         return self.name
 
 
@@ -21,6 +29,6 @@ class TopicStructure(MPTTModel):
     class MPTTMeta:
         order_insertion_by = ['topic']
     
-    def __str__ (self):
+    def __str__(self):
         return self.topic.name
 
