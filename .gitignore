@@ -1,1 +1,5 @@
 .DS_Store
+
+# Ignore these files
+__pycache__
+.idea

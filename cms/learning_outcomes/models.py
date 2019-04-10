@@ -13,8 +13,9 @@ class Topic(models.Model):
     def __str__ (self):
         return self.name
 
+
 class TopicStructure(MPTTModel):
-    topic =  models.ForeignKey(Topic, on_delete=models.CASCADE)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='sub_topics')
 
     class MPTTMeta:

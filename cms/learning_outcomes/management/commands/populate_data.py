@@ -1,15 +1,13 @@
 import csv
 import logging
 
-from learning_outcomes.models import Topic, TopicStructure
 from django.core.management.base import BaseCommand
+from learning_outcomes.models import Topic, TopicStructure
 
 logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    """
-    """
     help = 'Populates the topic structure'
 
     def add_arguments(self, parser):
