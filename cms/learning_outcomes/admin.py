@@ -2,11 +2,12 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from mptt.admin import DraggableMPTTAdmin, TreeRelatedFieldListFilter
+from django.utils.html import format_html
+from mptt.admin import DraggableMPTTAdmin
+
+
 from .models import Topic, TopicStructure
 
-
-from django.utils.html import format_html
 
 class MyDraggableMPTTAdmin(DraggableMPTTAdmin):
     list_per_page = 100
@@ -21,11 +22,10 @@ class MyDraggableMPTTAdmin(DraggableMPTTAdmin):
         )
     title.short_description = 'Name'
 
+
 class TopicAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
     search_fields = ['name']
-
-
 
 
 admin.site.register(
