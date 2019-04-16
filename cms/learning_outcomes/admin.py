@@ -6,7 +6,7 @@ from django.utils.html import format_html
 from mptt.admin import DraggableMPTTAdmin
 
 
-from .models import Topic, TopicStructure
+from .models import Topic, TopicStructure, Outcomes
 
 
 class MyDraggableMPTTAdmin(DraggableMPTTAdmin):
@@ -28,9 +28,14 @@ class TopicAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
+class OutcomesAdmin(admin.ModelAdmin):
+    pass
+
+
 admin.site.register(
     TopicStructure,
     MyDraggableMPTTAdmin,
-    search_fields = ['topic__name']
+    search_fields=['topic__name']
 )
 admin.site.register(Topic, TopicAdmin)
+admin.site.register(Outcomes, OutcomesAdmin)
