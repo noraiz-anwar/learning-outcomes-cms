@@ -37,6 +37,10 @@ class TopicStructure(MPTTModel):
 
 @receiver(post_save, sender=TopicStructure)
 def remove_outcomes(sender, **kwargs):
+    """
+    If at some point a leaf node becomes a Parent of a node, then move the outcomes of the 
+    leaf node to the furthest descendant that is a lead node
+    """
     instance = kwargs.get('instance', None)
     parent_outcomes = []
     if instance.parent:
