@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 from mptt.admin import DraggableMPTTAdmin
 
-
+from .forms import TopicForm
 from .models import Topic, TopicStructure, Outcomes
 
 
@@ -26,6 +26,7 @@ class MyDraggableMPTTAdmin(DraggableMPTTAdmin):
 class TopicAdmin(admin.ModelAdmin):
     list_display = ['name', 'category']
     search_fields = ['name']
+    form = TopicForm
 
 
 class OutcomesAdmin(admin.ModelAdmin):
