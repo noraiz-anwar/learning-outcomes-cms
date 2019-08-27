@@ -37,6 +37,9 @@ class TopicStructure(MPTTModel):
 
 @receiver(post_save, sender=TopicStructure)
 def remove_outcomes(sender, **kwargs):
+    """
+    Move outcomes down to the leaf node
+    """
     instance = kwargs.get('instance', None)
     parent_outcomes = []
     if instance.parent:
