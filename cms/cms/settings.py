@@ -31,13 +31,13 @@ ALLOWED_HOSTS = ['134.209.113.168']
 # Application definition
 
 INSTALLED_APPS = [
+    'learning_outcomes',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'learning_outcomes',
     'mptt',
 ]
 

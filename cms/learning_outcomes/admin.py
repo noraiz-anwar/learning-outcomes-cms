@@ -40,3 +40,9 @@ admin.site.register(
 )
 admin.site.register(Topic, TopicAdmin)
 admin.site.register(Outcomes, OutcomesAdmin)
+
+
+# Customization
+admin.site.site_header = 'Course Management System'
+admin.site.site_title = 'CMS'
+admin.site.index_title = ''
